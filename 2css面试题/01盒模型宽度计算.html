@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #div1 {
+            width: 100px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- div1的offsetWidth是多大？122px；
+        offsetWidth = （内容宽度 + 内边距 + 边框），五外边距
+    -->
+   
+    <!-- offsetWidth=100px怎么做
+     加上box-sizing：border-box；
+     box-sizing属性：
+        content-box：宽度和高度分别应用到元素的内容框。
+        border-box：元素指定的任何内边距和边框都将在已设定的宽度和高度内进行绘制。
+    -->
+    <div id="div1"></div>
+</body>
+</html>
