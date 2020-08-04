@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html {
+            font-size: 100px;
+        }
+        div {
+            margin-top: 10px;
+            font-size: 0.16rem;
+        }
+        @media only screen and (max-width: 374px){
+            /* 通过 */
+            html {
+                font-size:86px;
+            }
+        }
+        @media only screen and (min-width: 375px) and (max-width: 413px){
+            /* 6,7,8 x 为基本开发标准 */
+            html {
+                font-size:100px;
+            }
+        }
+        @media only screen and (max-width: 414px){
+            html {
+                /* 通过基本开发标准计算来
+                    414/375*100
+                 */
+                font-size:110px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+        rem是什么？
+            相对长度单位，相对于根元素，常用于响应式布局
+        响应式布局常用方案
+            媒体查询，根据不同屏幕宽度设置根元素font-size
+            通过rem进行计算
+    -->
+    <p style="font-size: 0.1rem;">rem 1</p>
+    <p style="font-size: 0.2rem;">rem 2</p>
+    <p style="font-size: 0.3rem;">rem 3</p>
+    <div style="width:1rem">
+        this is div1
+    </div>
+    <div>
+        this is div2
+    </div>
+    <div>
+        this is div3
+    </div>
+</body>
+</html>
