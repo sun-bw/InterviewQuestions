@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        单线程：
+            js是单线程语言，只能同时做一件事
+            js和dom渲染共用同一个线程，因为js可以修改dom结构
+            遇到等待（网络请求，定时任务）不能卡住
+            需要异步
+        异步和同步：
+            
+        异步的应用场景：
+            网络请求，如ajax，图片加载
+            定时任务：如setTimeout
+     -->
+    <script>
+        // 异步 callback回调函数
+        //不会阻塞后面代码执行
+        console.log(100)
+        setTimeout(() => {
+            console.log(200)
+        },1000)
+        console.log(300)
+        //100,200,300
+    </script>
+</body>
+</html>
