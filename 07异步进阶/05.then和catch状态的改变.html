@@ -46,6 +46,39 @@
         }).cathc(() => {
             console.log('some err')
         })
+
+
+        // ------------------------分割线------------------
+        // 面试题
+        // 第一题
+        // 没有报错都是，resolved状态，执行then
+        Promise.resolve().then(() => {
+            console.log(1)//1
+        }).catch(() => {
+            console.log(2)
+        }).then(() => {
+            console.log(3)//3
+        })
+        
+        // 第二题
+        Promise.resolve().then(() => {
+            console.log(1)//1  
+            throw new Error('error1')  //返回rejected状态，执行catch
+        }).catch(() => {
+            console.log(2)//2  返回resovled状态，触发then回调
+        }).then(() => {
+            console.log(3)//3
+        })
+
+        // 第三题
+        Promise.resolve().then(() => {
+            console.log(1) //1
+            throw new Error('error')
+        }).catch(() => {
+            console.log(2) //2
+        }).catch(() => {
+            console.log(3)
+        })
     </script>
 </body>
 </html>
