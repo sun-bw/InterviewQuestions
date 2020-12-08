@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- async/await 同步语法，彻底消除回调函数 -->
+    <script>
+        function loadImg(src) {
+            const p = new Promise((resolve, reject) => {
+                const img = document.createElement('img');
+                img.onload = () => {
+                    resolve(img)
+                }
+                img.onerror = () => {
+                    const err = new Error(`图片加载失败 ${src}`)
+                    reject(err)
+                }
+                img.src = src
+            })
+            return p
+        }
+        const url1 = 'http://www.wensoul.com/static/img/avatar.jpg'
+        const url2 = 'http://www.wensoul.com/static/img/7de5437.png';
+        async function loadImg1() {
+            const img1 = await loadImg(src1)
+            return img1
+        }
+        
+        (async function() {
+            const img1 = await loadImg(src1)
+            console.log(img1.heigth,img1.width)
+        })()
+    </script>
+</body>
+</html>
