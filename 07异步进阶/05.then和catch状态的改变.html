@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        then正常返回resolved，里面有报错返回rejected
+        catch正常返回resolved，里面有报错返回rejected
+     -->
+    <script>
+        const p1 = Promise.resolve().then(() => {
+            return 100
+        })
+        console.log('p1',p1)//resolved,触发后续then回调
+        p1.then(() => {
+            console.log('123')
+        })
+        const p2 = Promise.resolve().then(() => {
+            throw new Error('then erroe')
+        })
+        console.log('p2',p2)//rejected，触发后续catch回调
+        p2.then(() => {
+            console.log('345')//触发不了
+        }).catch(err => {
+            console.log('err',err)
+        })
+
+        const p3 = Promise.reject('my error').catch(err => {
+            console.log(err)
+        })
+        console.log('p3',p3)//resolved状态,触发then回调
+        p3.then(() => {
+            console.log(100)
+        })
+
+        const p4 = Promise.reject('my error').catch(err => {
+            throw new Error('catch err')
+        })
+        console.log('p4',p4)//rejected状态 触发catch回调
+
+        p4.then(() => {
+            console.log(200)
+        }).cathc(() => {
+            console.log('some err')
+        })
+    </script>
+</body>
+</html>
