@@ -19,16 +19,20 @@
         }
         const nums = [1,2,3]
 
-        // forEach 会一瞬间打印出结果 1,2,9
+        // forEach 会在一秒之后瞬间打印出结果 1,4,9
         nums.forEach(async (i) => {
             const res = await muti(i)
             console.log(res)
         })
 
-        for(let i of nums) {
-            const res = await muti(i)
-            console.log(res)
-        }
+        // 结果会每隔一秒，一次打印出结果
+        !(async function () {
+            for(let i of nums) {
+                const res = await muti(i)
+                console.log(res)
+            }
+        })()
+        
     </script>
 </body>
 </html>

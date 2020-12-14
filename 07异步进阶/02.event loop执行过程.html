@@ -14,6 +14,11 @@
             如果call stack为空，即同步代码执行完成，event loop开始工作
             轮询查找callback queue，如果有则移动到call stack执行
             然后继续轮询查找
+
+        event loop和DOM渲染
+            在call Stack空闲时，尝试去进行DOM渲染，然后在触发event loop
+
+        执行Promsie时，等待时机，放在micro task queue中，和settimeout
     -->
 </body>
 </html>
