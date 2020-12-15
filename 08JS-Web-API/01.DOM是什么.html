@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <!-- 
+            DOM的本质：从html解析出来的一棵树
+
+            property：对dom元素的js变量进行修改。js的属性，去修改页面样式，或者结构的一种形式。  不会对页面h5标签产生影响
+                修改对象属性，不会体现到html结构中
+                document.getElelementById()
+            attribute: DOM元素的节点属性，作用到节点属性，直接修改页面标签。
+                修改html属性，会改变html结构
+
+            两者都会引起DOM重新渲染。尽量使用property使用
+        -->
+        <script>
+            p.setAttribute('style','font-size:50px')
+            p.getAttribute('style')
+        </script>
+    </body>
+    </html>
+</body>
+</html>
