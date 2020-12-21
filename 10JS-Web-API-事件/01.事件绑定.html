@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id='btn1'>一个按钮</button>
+    <script>
+        // 事件绑定
+        const btn = document.getElementById('btn1')
+        btn.addEventListener('click', event => {
+            console.log('clicked')
+        })
+
+        // 通过事件绑定函数
+        function bindEvent(elem, type, fn) {
+            elem.addEventListener(type, fn)
+        }
+        const btn1 = document.getElementById('bnt1')
+        bindEvent(btn1,'click',event => {
+            console.log(event.target)//获取点击元素
+            event.preventDefault()//阻止默认行为，例如，超链接，阻止跳转
+            alert('clicked')
+        })
+    </script>
+</body>
+</html>

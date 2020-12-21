@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        有时间冒泡，才能在冒泡的基础上实现时间代理
+        事件代理的场景，瀑布流
+        例如：不知道div中有多少a标签，没办法给a标签绑定click事件
+            把事件绑定到div1上，每当点击a标签，都会通过冒泡机制，冒泡到div1上，然后拿到a标签的点击
+            这就是事件代理的一个应用
+     -->
+    <div id="div3">
+        <a href="#">a1</a>
+        <a href="#">a2</a>
+        <a href="#">a3</a>
+        <a href="#">a4</a>
+        <button id="btn1">点击加载更多</button>
+    </div>
+    <script>
+         // 通过事件绑定函数
+        // function bindEvent(elem, type, fn) {
+        //     elem.addEventListener(type, fn)
+        // }
+        // 另一种写法，支持事件代理,事件监听函数
+        function bindEvent(elem, type, selector, fn) {
+            //传了三个参数
+            if(fn == null) {
+                fn = selector;
+                selector = null;
+            }
+            elem.addEventListener(type, event => {
+                const target = event.target
+                if(selector) {
+                    //搭理绑定
+                    //判断当前元素符合不符合
+                    if(target.matches(selector)) {
+                        console.log(12321)
+                        fn.call(target, event)
+                    }
+                }else {
+                    //普通绑定
+                    fn.call(target, event)
+                }
+            })
+        }
+
+        // 普通绑定
+        const btn1 = document.getElementById('btn1')
+        bindEvent(btn1,'click', function(event) {
+            event.preventDefault()
+            alert(this.innerHTML)
+        })
+        //搭理绑定
+        const div3 = document.getElementById('div3')
+        bindEvent(div3,'click','a',function(event) {
+            event.preventDefault()
+            alert(this.innerHTML)
+        })
+    </script>
+</body>
+</html>
