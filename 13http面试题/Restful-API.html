@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        http methods
+            传统的methods
+                get获取服务器的数据
+                post提交数据
+                简单的网页功能。
+            现在的methods
+                get获取数据
+                post新建数据
+                patch/put更新数据
+                delete删除数据
+        Restful API
+            一种新的API设计方法
+            传统的API设计：把每个url当做一个功能
+            Restful API设计：把每个url当做一个唯一的资源
+                如何设计成一个资源？
+                    尽量不用url参数
+                        传统的API设计：/api/list?pageIndex=2
+                        Restful API设计：/api/list/2
+                用Restful API表示操作类型
+
+        http headers
+            Request headers
+                Accept 浏览器可接收的数据格式
+                Accept-Encoding 浏览器可接收的压缩算法，gzip
+                Accept-Languange 浏览器可接收的语言，如：zh-CN
+                Connection:kee-alive 一次tcp连接重复使用
+                cookie
+                Host：域名
+                User-Agent：浏览器信息
+                Content-type：发送数据的格式
+            Response headers
+                Content-type:返回的数据格式
+                Content-length 返回数据的大小
+                Content-Encoding 返回数据的压缩算法
+                Set-Cookie
+        http 缓存
+            什么是缓存？
+
+            为什么需要缓存？
+                减少网络请求的体积和数量，加快页面渲染的速度
+            那些资源可以被缓存
+                静态资源（js css img）
+            强制缓存
+                Cache-Control，在Response Headers中
+                    控制强制缓存的逻辑
+                    例如：Cache-Control：max-age=31536000（单位秒）//强制缓存一年的时间
+                        Cache-Control的值：max-age 缓存时间，no-cache 不做强制缓存，no-store 不用本地缓存，也不用服务端的缓存措施
+            协商缓存（对比缓存 ）
+                服务端缓存策略
+
+    -->
+</body>
+</html>
